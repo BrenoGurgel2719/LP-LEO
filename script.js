@@ -190,12 +190,15 @@
 
                     _setupDots() {
                         this.pagination.innerHTML = "";
-                        this.dots = this.slides.map((_, i) => {
+                        this.dots = this.slides.map((slide, i) => {
                             const b = document.createElement("button");
                             b.type = "button";
                             b.className = "mzaCarousel-dot";
                             b.setAttribute("role", "tab");
                             b.setAttribute("aria-label", `Ir para o slide ${i + 1}`);
+                            b.setAttribute("aria-controls", slide.id);
+                            b.setAttribute("aria-selected", i === 0 ? "true" : "false");
+                            b.tabIndex = i === 0 ? 0 : -1;
                             b.addEventListener("click", () => this.goTo(i));
                             this.pagination.appendChild(b);
                             return b;
@@ -309,7 +312,16 @@
                         this.state.animating = false;
                         this._render(true);
                         this._startCycle();
-                        this.dots.forEach((d, idx) => d.setAttribute("aria-selected", idx === this.state.index));
+                        this.dots.forEach((d, idx) => {
+                            const active = idx === this.state.index;
+                            d.setAttribute("aria-selected", String(active));
+                            d.tabIndex = active ? 0 : -1;
+                        });
+                        this.slides.forEach((slide, idx) => {
+                            const active = idx === this.state.index;
+                            slide.setAttribute("aria-hidden", String(!active));
+                            slide.tabIndex = active ? 0 : -1;
+                        });
                     }
 
                     _nearest(from, target) {

@@ -672,8 +672,8 @@
                             <img src="cliente4.avif" alt="cliente 4 avatar" loading="lazy" decoding="async">
                             <img src="cliente5.avif" alt="cliente 5 avatar" loading="lazy" decoding="async">
                         </div>
-                        <div class="stars" aria-label="Avaliação 5 de 5 estrelas">
-                            <svg viewBox="0 0 24 24">
+                        <div class="stars" role="img" aria-label="Avaliação 5 de 5 estrelas">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path
                                     d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z" />
                             </svg>
@@ -748,10 +748,10 @@
         </div>
 
         <div class="mzaCarousel" id="mzaCarousel" aria-roledescription="carousel" aria-label="Especialidades jurídicas">
-            <div class="mzaCarousel-viewport" tabindex="0">
-                <div class="mzaCarousel-track">
+            <div class="mzaCarousel-viewport" id="mzaCarouselViewport" tabindex="0" aria-live="polite" aria-label="Carrossel de especialidades jurídicas">
+                <div class="mzaCarousel-track" id="mzaCarouselTrack">
 
-                    <article class="mzaCarousel-slide" role="group" aria-label="1 de 6">
+                    <article class="mzaCarousel-slide" id="mza-slide-1" aria-label="Especialidade 1 de 6">
                         <div class="mzaCard">
                             <div class="mzaCard-inner">
                                 <div class="mzaPar-1">
@@ -774,7 +774,7 @@
                         </div>
                     </article>
 
-                    <article class="mzaCarousel-slide" role="group" aria-label="2 de 6">
+                    <article class="mzaCarousel-slide" id="mza-slide-2" aria-label="Especialidade 2 de 6">
                         <div class="mzaCard">
                             <div class="mzaCard-inner">
                                 <div class="mzaPar-1">
@@ -796,7 +796,7 @@
                         </div>
                     </article>
 
-                    <article class="mzaCarousel-slide" role="group" aria-label="3 de 6">
+                    <article class="mzaCarousel-slide" id="mza-slide-3" aria-label="Especialidade 3 de 6">
                         <div class="mzaCard">
                             <div class="mzaCard-inner">
                                 <div class="mzaPar-1">
@@ -818,7 +818,7 @@
                         </div>
                     </article>
 
-                    <article class="mzaCarousel-slide" role="group" aria-label="4 de 6">
+                    <article class="mzaCarousel-slide" id="mza-slide-4" aria-label="Especialidade 4 de 6">
                         <div class="mzaCard">
                             <div class="mzaCard-inner">
                                 <div class="mzaPar-1">
@@ -843,7 +843,7 @@
                         </div>
                     </article>
 
-                    <article class="mzaCarousel-slide" role="group" aria-label="5 de 6">
+                    <article class="mzaCarousel-slide" id="mza-slide-5" aria-label="Especialidade 5 de 6">
                         <div class="mzaCard">
                             <div class="mzaCard-inner">
                                 <div class="mzaPar-1">
@@ -864,7 +864,7 @@
                         </div>
                     </article>
 
-                    <article class="mzaCarousel-slide" role="group" aria-label="6 de 6">
+                    <article class="mzaCarousel-slide" id="mza-slide-6" aria-label="Especialidade 6 de 6">
                         <div class="mzaCard">
                             <div class="mzaCard-inner">
                                 <div class="mzaPar-1">
@@ -891,11 +891,11 @@
             </div>
 
             <div class="mzaCarousel-controls" aria-label="Controles do carrossel">
-                <button class="mzaCarousel-prev" aria-label="Anterior" type="button">‹</button>
-                <button class="mzaCarousel-next" aria-label="Próximo" type="button">›</button>
+                <button class="mzaCarousel-prev" aria-label="Slide anterior" aria-controls="mzaCarouselTrack" type="button">‹</button>
+                <button class="mzaCarousel-next" aria-label="Próximo slide" aria-controls="mzaCarouselTrack" type="button">›</button>
             </div>
 
-            <div class="mzaCarousel-pagination" role="tablist" aria-label="Navegação dos slides"></div>
+            <div class="mzaCarousel-pagination" role="tablist" aria-label="Navegação dos slides" aria-controls="mzaCarouselTrack"></div>
         </div>
         </section>
 
