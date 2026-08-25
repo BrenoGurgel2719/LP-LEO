@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.leonardodantasadv.com.br/sitemap.xml
+
+# Permitir rastreio dos conteúdos principais
+Allow: /index.html
+Allow: /style.css
+Allow: /script.js
+Allow: /Fundo-1.avif
+Allow: /Logo-Amarelo-e-branca.png
+
+# Bloquear arquivos desnecessários para o crawl
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /LICENSE
+Disallow: /README*
