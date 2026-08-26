@@ -93,7 +93,8 @@
                     let closestDistance = Infinity;
 
                     members.forEach((member, index) => {
-                        const distance = Math.abs(member.getBoundingClientRect().top + member.offsetHeight / 2 - target);
+                        const memberRect = member.getBoundingClientRect();
+                        const distance = Math.abs(memberRect.top + memberRect.height / 2 - target);
                         if (distance < closestDistance) {
                             closestDistance = distance;
                             activeIndex = index;
@@ -153,6 +154,7 @@
                             dragging: false, pointerId: null, x0: 0, v: 0, t0: 0,
                             animating: false, hovering: false, startTime: 0, pausedAt: 0, rafId: 0
                         };
+                        this.viewportRect = { left: 0, top: 0, width: 0, height: 0 };
                         this.opts = Object.assign({
                             gap: 28, peek: 0.15, rotateY: 34, zDepth: 150, scaleDrop: 0.09,
                             blurMax: 2.0, activeLeftBias: 0.12, interval: 4500, transitionMs: 900,
@@ -225,13 +227,15 @@
 
                     _measure() {
                         const viewRect = this.viewport.getBoundingClientRect();
+                        this.viewportRect = viewRect;
                         this.state.width = viewRect.width;
                         this.state.gap = this.opts.gap;
                         this.slideW = Math.min(760, this.state.width * (1 - this.opts.peek * 2));
                     }
 
                     _onTilt(e) {
-                        const r = this.viewport.getBoundingClientRect();
+                        const r = this.viewportRect;
+                        if (!r.width || !r.height) return;
                         const mx = (e.clientX - r.left) / r.width - 0.5;
                         const my = (e.clientY - r.top) / r.height - 0.5;
                         this.root.style.setProperty("--mzaTiltX", (my * -6).toFixed(3));
