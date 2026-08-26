@@ -420,7 +420,7 @@
             gap: 10px;
             margin-top: 36px;
             padding: 15px 28px;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, .18);
             border-radius: 999px;
             background: var(--dourado);
             color: var(--verde-escuro);
@@ -430,20 +430,32 @@
             letter-spacing: .02em;
             text-decoration: none;
             cursor: pointer;
-            transition: background .25s ease, transform .15s ease;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .22);
+            transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .15s ease;
         }
 
-        .hero-cta i {
-            font-size: 17px;
+        .hero-cta svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            transition: transform .25s ease;
         }
 
         .hero-cta:hover,
         .hero-cta:focus-visible {
             background: var(--dourado-suave);
+            border-color: rgba(255, 255, 255, .36);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, .3);
+            transform: translateY(-2px);
+        }
+
+        .hero-cta:hover svg,
+        .hero-cta:focus-visible svg {
+            transform: translateX(2px) scale(1.05);
         }
 
         .hero-cta:active {
-            transform: scale(.97);
+            transform: translateY(0) scale(.97);
         }
 
         .social-proof {
