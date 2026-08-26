@@ -185,6 +185,12 @@
                         this._setupDots();
                         this._bind();
                         this._measure();
+                        this.slides.forEach((slide, index) => {
+                            const active = index === 0;
+                            slide.setAttribute("aria-hidden", String(!active));
+                            slide.inert = !active;
+                            slide.removeAttribute("tabindex");
+                        });
                         this.goTo(0, false);
                         this._startCycle();
                         this._loop();
@@ -324,7 +330,8 @@
                         this.slides.forEach((slide, idx) => {
                             const active = idx === this.state.index;
                             slide.setAttribute("aria-hidden", String(!active));
-                            slide.tabIndex = active ? 0 : -1;
+                            slide.inert = !active;
+                            slide.removeAttribute("tabindex");
                         });
                     }
 
