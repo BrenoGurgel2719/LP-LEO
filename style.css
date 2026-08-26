@@ -1,26 +1,4 @@
 ﻿
-        @font-face {
-            font-family: "Font Awesome 6 Brands";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.woff2") format("woff2");
-        }
-
-        .fa-brands {
-            font-family: "Font Awesome 6 Brands";
-            font-style: normal;
-            font-weight: 400;
-        }
-
-        .fa-whatsapp::before {
-            content: "\f232";
-        }
-
-        .fa-instagram::before {
-            content: "\f16d";
-        }
-
         .sobre {
             background: var(--creme);
             padding: 120px 48px;
@@ -1118,7 +1096,9 @@
             transition: background .25s ease, transform .15s ease;
         }
 
-        .cta-btn i {
+        .cta-btn svg {
+            width: 17px;
+            height: 17px;
             font-size: 17px;
         }
 
@@ -1508,10 +1488,11 @@
         }
 
         .footer-whatsapp-icon {
+            width: 16px;
+            height: 16px;
             flex-shrink: 0;
             margin-top: 2px;
             color: var(--dourado);
-            font-size: 16px;
         }
 
         .footer-contact-item a,
@@ -1799,8 +1780,9 @@
             }
         }
 
-        .wa-float i {
-            font-size: 28px;
+        .wa-float svg {
+            width: 28px;
+            height: 28px;
             color: #fff;
             filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .25));
         }
@@ -1849,8 +1831,9 @@
                 height: 52px;
             }
 
-            .wa-float i {
-                font-size: 25px;
+            .wa-float svg {
+                width: 25px;
+                height: 25px;
             }
         }
 
